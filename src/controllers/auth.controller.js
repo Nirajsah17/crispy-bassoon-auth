@@ -11,5 +11,18 @@ export const googleCallback = async (req, res) => {
     process.env.JWT_SECRET,
     { expiresIn: "24h" }
   );
-  res.redirect(`http://localhost:3000/dashboard?token=${token}`);
+
+  res.send(`
+    <html>
+      <body>
+        <script>
+          window.opener.postMessage(${user}, "http://localhost:5173");
+          setTimeout(() => window.close(), 100);
+        </script>
+        <p>Logging you in... you can close this tab.</p>
+      </body>
+    </html>
+  `);
+
+  // res.redirect(`http://localhost:5173/dashboard?token=${token}`);
 };

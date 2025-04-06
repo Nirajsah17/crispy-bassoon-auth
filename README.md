@@ -4,6 +4,9 @@ Auth
 
 * https://console.cloud.google.com/
 
+* add clientid and secret from google console.
+* https://console.cloud.google.com/
+
 ```bash
 # .env
 GOOGLE_CLIENT_ID=JWBQICgeibueoguiehdhi;
